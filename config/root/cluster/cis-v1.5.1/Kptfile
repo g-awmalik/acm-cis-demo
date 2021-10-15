@@ -1,0 +1,24 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: cis-v1.5.1
+upstream:
+  type: git
+  git:
+    repo: sso://team/nomos-team/policy-controller-constraint-library
+    directory: /bundles/cis-v1.5.1
+    ref: master
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: sso://team/nomos-team/policy-controller-constraint-library
+    directory: /bundles/cis-v1.5.1
+    ref: master
+    commit: 25a7cf5860eeabe9e452e1c5bc29ee08c2f70aa8
+info:
+  description: CIS Benchmark Kubernetes v1.5.1
+pipeline:
+  mutators:
+    - image: gcr.io/kpt-fn/apply-setters:v0.1
+      configPath: setters.yaml
