@@ -8,7 +8,7 @@ spec:
   sourceFormat: unstructured
   git: 
     secretType: ssh
-    syncRepo: git@github.com:linde/acm-cis-demo.git
+    syncRepo: git@github.com:/g-awmalik/acm-cis-demo.git
     syncBranch: main
     policyDir: config/root
   policyController:
