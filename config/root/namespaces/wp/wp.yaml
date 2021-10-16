@@ -30,3 +30,12 @@ spec:
       ports:
         - containerPort: 80
           name: wordpress
+      securityContext:
+        # CIS FIX: was true, addresses securityContext
+        privileged: false
+        # CIS FIX: was true, addresses priviledge escalation
+        allowPrivilegeEscalation: false
+        # CIS FIX: addresses absense of runAsUser, should use a real userid
+        runAsUser: 100
+        # CIS FIX: allow only read-only root file system access
+        readOnlyRootFilesystem: true
