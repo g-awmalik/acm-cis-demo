@@ -7,4 +7,3 @@ spec:
   match:
   - excludedNamespaces: ["kube-system", "gatekeeper-system", "config-management-system", "resource-group-system"]
     processes: ["audit"]
-
