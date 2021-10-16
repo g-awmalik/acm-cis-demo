@@ -27,15 +27,16 @@ spec:
   containers:
     - image: wordpress
       name: wordpress
-      ports:
-        - containerPort: 80
-          name: wordpress
       securityContext:
         # CIS FIX: was true, addresses securityContext
         privileged: false
         # CIS FIX: was true, addresses priviledge escalation
         allowPrivilegeEscalation: false
-        # CIS FIX: addresses absense of runAsUser, should use a real userid
+        # CIS FIX: addresses absense of runAsUser, should use something in org
         runAsUser: 100
         # CIS FIX: allow only read-only root file system access
         readOnlyRootFilesystem: true
+      ports:
+        # CIS FIX: cant use 80 anymore as unpriv user have to update apache.conf
+        - containerPort: 8080
+          name: wordpress
