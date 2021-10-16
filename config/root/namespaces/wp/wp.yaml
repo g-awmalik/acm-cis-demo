@@ -13,14 +13,14 @@ spec:
 ---
 apiVersion: v1
 kind: Pod
-annotations:
-  ## CIS FIX: addresses apparmor security profile
-  container.apparmor.security.beta.kubernetes.io/wordpress: runtime/default
-  ## CIS FIX: addresses seccomp profile
-  container.seccomp.security.alpha.kubernetes.io/wordpress: runtime/default
 metadata:
   namespace: wp
   name: wp
+  annotations:
+    ## CIS FIX: addresses apparmor security profile
+    container.apparmor.security.beta.kubernetes.io/wordpress: runtime/default
+    ## CIS FIX: addresses seccomp profile
+    container.seccomp.security.alpha.kubernetes.io/wordpress: runtime/default
   labels:
     app: wordpress
 spec:
