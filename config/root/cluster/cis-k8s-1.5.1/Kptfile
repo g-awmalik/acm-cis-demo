@@ -1,0 +1,25 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: cis-k8s-1.5.1
+upstream:
+  type: git
+  git:
+    repo: git@github.com:g-awmalik/acm-policy-controller-library
+    directory: /bundles/cis-k8s-1.5.1
+    ref: feat/policy-annotations
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: git@github.com:g-awmalik/acm-policy-controller-library
+    directory: /bundles/cis-k8s-1.5.1
+    ref: feat/policy-annotations
+    commit: 0134252502fd406eedeba916f1e541a27be22c26
+info:
+  description: CIS Benchmark Kubernetes v1.5.1
+pipeline:
+  mutators:
+    - image: gcr.io/kpt-fn/apply-setters:v0.1
+      configMap:
+        enforcementAction: dryrun

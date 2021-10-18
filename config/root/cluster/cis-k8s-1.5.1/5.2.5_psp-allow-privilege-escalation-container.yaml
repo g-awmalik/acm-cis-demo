@@ -1,10 +1,11 @@
-# GENERATED CODE, DO NOT EDIT.
-# Any changes should be made in the original files in the Policy Controller constraint library:
-#   third_party/src/pod-security-policy/allow-privilege-escalation/constraint.yaml
 apiVersion: constraints.gatekeeper.sh/v1beta1
 kind: K8sPSPAllowPrivilegeEscalationContainer
 metadata: # kpt-merge: /psp-allow-privilege-escalation-container
   name: psp-allow-privilege-escalation-container
+  annotations:
+    # This constraint is not certified by CIS.
+    description: "Restricts containers with `allowPrivilegeEscalation` set to `true`."
+    bundles.validator.forsetisecurity.org/cis-k8s-v1.5.1: 5.2.5
 spec:
   enforcementAction: dryrun # kpt-set: ${enforcementAction}
   match:
