@@ -62,6 +62,7 @@ spec:
       emptyDir: {}
     - name: var-run-volume
       emptyDir: {}
+  allowedCapabilities: []
 ---
 apiVersion: v1
 kind: ConfigMap
