@@ -4,7 +4,7 @@ metadata:
   name: config-management
   namespace: config-management-system
 spec:
-  clusterName: acm-cis-demo
+  clusterName: gscrp-cs-cluster-001
   sourceFormat: unstructured
   git: 
     secretType: ssh
